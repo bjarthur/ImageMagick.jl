@@ -4,8 +4,8 @@ using BinDeps
 
 mpath = get(ENV, "MAGICK_HOME", "") # If MAGICK_HOME is defined, add to library search path
 if !isempty(mpath)
-    push!(DL_LOAD_PATH, mpath)
-    push!(DL_LOAD_PATH, joinpath(mpath,"lib"))
+    push!(Base.DL_LOAD_PATH, mpath)
+    push!(Base.DL_LOAD_PATH, joinpath(mpath,"lib"))
 end
 libnames    = ["libMagickWand", "CORE_RL_wand_"]
 suffixes    = ["", "-Q16", "-6.Q16", "-Q8"]
