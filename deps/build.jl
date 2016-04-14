@@ -8,9 +8,9 @@ if !isempty(mpath)
     push!(Base.DL_LOAD_PATH, joinpath(mpath,"lib"))
 end
 libnames    = ["libMagickWand", "CORE_RL_wand_"]
-suffixes    = ["", "-Q16", "-6.Q16", "-Q8"]
+suffixes    = ["-6.Q16", "", "-Q16", "-Q8"]
 options     = ["", "HDRI"]
-extensions  = ["", ".so.2", ".so.4", ".so.5"]
+extensions  = [".so.2", "", ".so.4", ".so.5"]
 aliases     = vec(libnames.*transpose(suffixes).*reshape(options,(1,1,length(options))).*reshape(extensions,(1,1,1,length(extensions))))
 libwand     = library_dependency("libwand", aliases = aliases)
 
